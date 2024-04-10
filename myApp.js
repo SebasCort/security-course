@@ -16,6 +16,8 @@ app.use(helmet.dnsPrefetchControl());
 app.use(helmet.noCache());
 app.use(helmet.noSniff());
 app.use(helmet.ieNoOpen());
+app.use(helmet.contentSecurityPolicy({"script-src": ["'self'", "example.com"],
+"style-src": null,}));
 
 
 
