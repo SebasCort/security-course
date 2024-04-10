@@ -24,7 +24,7 @@ app.use(
         "style-src": null,
       },
     },
-  })
+  }))
 
 
 
