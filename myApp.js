@@ -16,15 +16,12 @@ app.use(helmet.dnsPrefetchControl());
 app.use(helmet.noCache());
 app.use(helmet.noSniff());
 app.use(helmet.ieNoOpen());
-app.use(
-  helmet({
-    contentSecurityPolicy: {
-      directives: {
-        "script-src": ["'self'", "example.com"],
-        "style-src": null,
-      },
-    },
-  }))
+app.use(helmet.contentSecurityPolicy({directives:{
+
+
+  defaultScr: ['self'],
+  scriptScr: ['self' , 'trusted-cdn.com'] 
+}}))
 
 
 
