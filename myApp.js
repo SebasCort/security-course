@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 
 
 
-app.use(helmet.hidePoweredBy());
+/*app.use(helmet.hidePoweredBy());
 app.use(helmet.frameguard({ action: "deny",}));
 app.use(helmet.hsts({maxAge: ninetyDaysInSeconds , force:true}));
 app.use(helmet.xssFilter());
@@ -21,7 +21,18 @@ app.use(
   directives:{
   defaultSrc: ["'self'"],
   scriptSrc: ["'self'" , 'trusted-cdn.com'] 
-}}));
+}}))*/
+
+app.use(helmet({
+contentSecurityPolicy: {
+  directives: {
+    defaultSrc: ["'self"],
+    scriptSrc: ["'self"]
+  }
+},
+noCache : true
+
+}))
 
 
 
